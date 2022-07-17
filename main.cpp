@@ -117,7 +117,7 @@ float FloatType::multiply(float lhs, float rhs)
     return lhs * rhs;
 }
 
-float FloatType::divide(float lhs, float rhs )
+float FloatType::divide(float lhs, float rhs)
 {
     if( rhs == 0.f )  
     { 
@@ -151,7 +151,7 @@ double DoubleType::multiply(double lhs, double rhs)
     return lhs * rhs;
 }
 
-double DoubleType::divide(double lhs, double rhs )
+double DoubleType::divide(double lhs, double rhs)
 {
     if( rhs == 0.0)  
     { 
@@ -184,7 +184,7 @@ int IntType::multiply(int lhs, int rhs)
     return lhs * rhs;
 }
 
-int IntType::divide(int lhs, int rhs )
+int IntType::divide(int lhs, int rhs)
 {
     if( rhs == 0)  
     { 
