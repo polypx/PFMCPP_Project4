@@ -164,7 +164,7 @@ FloatType&  FloatType::divide(float lhs)
 {
     if( lhs == 0.f )  
     { 
-        std::cout << "warning, floating point division by zero returns 'inf' !\n";
+        std::cout << "warning: floating point division by zero! \n";
     }
     *value /= lhs;
     return *this;
@@ -209,7 +209,7 @@ DoubleType& DoubleType::divide(double lhs)
 {
     if( lhs == 0.0)  
     { 
-        std::cout << "warning, floating point division by zero returns 'inf' !\n";
+        std::cout << "warning: floating point division by zero!\n";
     }
     *value /= lhs;
     return *this; 
@@ -309,9 +309,9 @@ int main()
     // Intercept division by 0
     // --------
     std::cout << "Intercept division by 0 " << std::endl;
-    std::cout << "New value of it = it / 0 = " << it.divide(0).value << std::endl;
-    std::cout << "New value of ft = ft / 0 = " << ft.divide(0).value << std::endl;
-    std::cout << "New value of dt = dt / 0 = " << dt.divide(0).value << std::endl;
+    std::cout << "New value of it = it / 0 = " << *it.divide(0).value << std::endl;
+    std::cout << "New value of ft = ft / 0 = " << *ft.divide(0).value << std::endl;
+    std::cout << "New value of dt = dt / 0 = " << *dt.divide(0).value << std::endl;
 
     std::cout << "---------------------\n" << std::endl; 
 
