@@ -133,7 +133,7 @@ struct IntType;
 
 struct FloatType
 {
-    FloatType(float f) : value( new float(f)) {}
+    FloatType(float f) : value( new float(f) ) {}
     ~FloatType()
     {
         delete value;
@@ -267,7 +267,7 @@ FloatType& FloatType::multiply(const IntType& lhs)
 
 FloatType& FloatType::divide(const IntType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 FloatType& FloatType::add(const FloatType& lhs)
@@ -287,7 +287,7 @@ FloatType& FloatType::multiply(const FloatType& lhs)
 
 FloatType& FloatType::divide(const FloatType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 FloatType& FloatType::add(const DoubleType& lhs)
@@ -307,7 +307,7 @@ FloatType& FloatType::multiply(const DoubleType& lhs)
 
 FloatType& FloatType::divide(const DoubleType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 
@@ -356,7 +356,7 @@ DoubleType& DoubleType::multiply(const IntType& lhs)
 
 DoubleType& DoubleType::divide(const IntType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 DoubleType& DoubleType::add(const FloatType& lhs)
@@ -376,7 +376,7 @@ DoubleType& DoubleType::multiply(const FloatType& lhs)
 
 DoubleType& DoubleType::divide(const FloatType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 DoubleType& DoubleType::add(const DoubleType& lhs)
@@ -396,7 +396,7 @@ DoubleType& DoubleType::multiply(const DoubleType& lhs)
 
 DoubleType& DoubleType::divide(const DoubleType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 
@@ -448,7 +448,7 @@ IntType& IntType::multiply(const IntType& lhs)
 
 IntType& IntType::divide(const IntType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 IntType& IntType::add(const FloatType& lhs)
@@ -468,7 +468,7 @@ IntType& IntType::multiply(const FloatType& lhs)
 
 IntType& IntType::divide(const FloatType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 IntType& IntType::add(const DoubleType& lhs)
@@ -488,7 +488,7 @@ IntType& IntType::multiply(const DoubleType& lhs)
 
 IntType& IntType::divide(const DoubleType& lhs)
 {
-    return subtract(*lhs.value);
+    return divide(*lhs.value);
 }
 
 int main()
