@@ -244,7 +244,7 @@ FloatType&  FloatType::divide(float lhs)
 {
     if( lhs == 0.f )  
     { 
-        std::cout << "warning: floating point division by zero! \n";
+        std::cout << "warning: floating point division by zero!\n";
     }
     *value /= lhs;
     return *this;
@@ -422,7 +422,7 @@ IntType& IntType::divide(int lhs)
 {
     if( lhs == 0)  
     { 
-        std::cout << "error, integer division by zero will crash the program! \n";
+        std::cout << "error: integer division by zero is an error and will crash the program!\n";
     }
     else
     {
