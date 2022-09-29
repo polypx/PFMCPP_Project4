@@ -140,6 +140,13 @@ struct FloatType
     FloatType& multiply(float lhs);
     FloatType& divide(float lhs);
 
+    operator float() const
+    {
+        return *value; 
+    }
+
+private:
+    float* value;
 };
 
 struct DoubleType
@@ -156,6 +163,13 @@ struct DoubleType
     DoubleType& multiply(double lhs);
     DoubleType& divide(double lhs);
 
+    operator double() const
+    {
+        return *value; 
+    }
+
+private:
+    double* value;
 };
 
 struct IntType
@@ -172,7 +186,13 @@ struct IntType
     IntType& multiply(int lhs);
     IntType& divide(int lhs);
 
+    operator int() const
+    {
+        return *value; 
+    }
 
+private:
+    int* value;
 };
 
 
