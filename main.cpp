@@ -55,19 +55,6 @@ Project 4: Part 4 / 9
 
 
 
-struct Point
-{
-    Point& multiply(float m)
-    {
-        x *= m;
-        y *= m;
-        return *this;
-    }
-private:
-    float x{0}, y{0};
-};
-
-
 
 /*
 your program should generate the following output EXACTLY.
@@ -462,6 +449,51 @@ IntType& IntType::pow(FloatType& exp)
 }
 
 
+
+struct Point
+{
+    Point(float x, float y) : mx(x), my(y) {}
+    Point(FloatType& x, FloatType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
+    Point(DoubleType& x, DoubleType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
+    Point(IntType& x, IntType& y) :Point(static_cast<float>(x), static_cast<float>(y)) {}
+    
+    Point& multiply(float m)
+    {
+        mx *= m;
+        my *= m;
+        return *this;
+    }
+    Point& multiply(FloatType& m);
+    Point& multiply(DoubleType& m);
+    Point& multiply(IntType& m);
+    void toString();
+ 
+
+private:
+    float mx{0}, my{0};
+};
+
+Point& Point::multiply(FloatType& value)
+{
+    return multiply(static_cast<float>(value));
+}
+
+Point& Point::multiply(DoubleType& value)
+{
+    return multiply(static_cast<float>(value));
+}
+
+Point& Point::multiply(IntType& value)
+{
+    return multiply(static_cast<float>(value));
+}
+
+void Point::toString()
+{
+    std::cout << "Point { x: " << mx << ", y: " << my << " }" << std::endl;  
+}
+
+
 void part3()
 {
     FloatType ft( 5.5f );
@@ -479,7 +511,7 @@ void part3()
     std::cout << "(IntType + DoubleType + FloatType) x 24 = " << it.add( static_cast<int>(dt) ).add( static_cast<int>(ft) ).multiply( 24 ) << std::endl;
 }
 
-/*
+
 void part4()
 {
     // ------------------------------------------------------------
@@ -522,6 +554,8 @@ void part4()
     // ------------------------------------------------------------
     //                          Point tests
     // ------------------------------------------------------------
+
+
     FloatType ft2(3.0f);
     DoubleType dt2(4.0);
     IntType it2(5);
@@ -562,8 +596,9 @@ void part4()
     p3.multiply(it2); 
     p3.toString();   
     std::cout << "---------------------\n" << std::endl;
+
 }
-*/
+
 
 int main()
 {   
