@@ -211,7 +211,7 @@ struct HeapA
 
 struct FloatType
 {
-    FloatType(float f) : value( new float(f) ) {}
+    explicit FloatType(float f) : value( new float(f) ) {}
     ~FloatType()
     {
         value = nullptr;
@@ -241,7 +241,7 @@ private:
 
 struct DoubleType
 {
-    DoubleType(double d) : value( new double(d)) {}
+    explicit DoubleType(double d) : value( new double(d)) {}
     ~DoubleType()
     {
         value = nullptr;
@@ -271,7 +271,7 @@ private:
 
 struct IntType
 {
-    IntType(int i) : value( new int(i)) {}
+    explicit IntType(int i) : value( new int(i)) {}
     ~IntType()
     {
         value = nullptr;
