@@ -60,9 +60,9 @@ struct IntType;
 struct Point
 {
     Point(float x, float y);
-    explicit Point(FloatType& x);
-    explicit Point(DoubleType& x);
-    explicit Point(IntType& x);
+    explicit Point(FloatType& x, FloatType& y);
+    explicit Point(DoubleType& x, DoubleType& y);
+    explicit Point(IntType& x, IntType& y);
     
     Point& multiply(float m)
     {
@@ -469,10 +469,9 @@ IntType& IntType::pow(FloatType& exp)
 // moved constructors down here at least
 
 Point::Point(float x, float y) : mx(x), my(y) {}
-
-Point::Point(FloatType& x) : Point(x, x) {}
-Point::Point(DoubleType& x) : Point(static_cast<float>(x), static_cast<float>(x)) {}
-Point::Point(IntType& x) : Point(static_cast<float>(x), static_cast<float>(x)) {}
+Point::Point(FloatType& x, FloatType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
+Point::Point(DoubleType& x, DoubleType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
+Point::Point(IntType& x, IntType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
 
 Point& Point::multiply(FloatType& value)
 {
