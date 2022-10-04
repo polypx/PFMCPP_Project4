@@ -328,6 +328,26 @@ FloatType& FloatType::powInternal(float exp)
     return *this;
 }
 
+FloatType& FloatType::pow(float exp)
+{
+    return powInternal(exp);
+}
+
+FloatType& FloatType::pow(FloatType& exp)
+{
+    return powInternal(exp);
+}
+
+FloatType& FloatType::pow(DoubleType& exp)
+{
+    return powInternal(static_cast<float>(exp));
+}
+
+FloatType& FloatType::pow(IntType& exp)
+{
+    return powInternal(static_cast<float>(exp));
+}
+
 
 DoubleType& DoubleType::add(double lhs) 
 {
@@ -362,6 +382,27 @@ DoubleType& DoubleType::powInternal(double exp)
     *value = std::pow( *value, exp ); 
     return *this;
 }
+
+DoubleType& DoubleType::pow(double exp)
+{
+    return powInternal(exp);
+}
+
+DoubleType& DoubleType::pow(DoubleType& exp)
+{
+    return powInternal(exp);
+}
+
+DoubleType& DoubleType::pow(FloatType& exp)
+{
+    return powInternal(static_cast<double>(exp));
+}
+
+DoubleType& DoubleType::pow(IntType& exp)
+{
+    return powInternal(static_cast<double>(exp));
+}
+
 
 IntType& IntType::add(int lhs) 
 {
@@ -399,6 +440,27 @@ IntType& IntType::powInternal(int exp)
     *value = static_cast<int>(std::pow( *value, exp )); 
     return *this;
 }
+
+IntType& IntType::pow(int exp)
+{
+    return powInternal(exp);
+}
+
+IntType& IntType::pow(IntType& exp)
+{
+    return powInternal(exp);
+}
+
+IntType& IntType::pow(DoubleType& exp)
+{
+    return powInternal(static_cast<int>(exp));
+}
+
+IntType& IntType::pow(FloatType& exp)
+{
+    return powInternal(static_cast<int>(exp));
+}
+
 
 void part3()
 {
