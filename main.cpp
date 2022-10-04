@@ -449,7 +449,6 @@ IntType& IntType::pow(FloatType& exp)
 }
 
 
-
 struct Point
 {
     Point(float x, float y) : mx(x), my(y) {}
@@ -467,7 +466,6 @@ struct Point
     Point& multiply(DoubleType& m);
     Point& multiply(IntType& m);
     void toString();
- 
 
 private:
     float mx{0}, my{0};
@@ -652,7 +650,7 @@ int main()
     std::cout << "---------------------\n" << std::endl; 
 
     part3();
-    //part4();
+    part4();
 
     std::cout << "good to go!\n";
 
