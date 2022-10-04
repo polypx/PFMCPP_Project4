@@ -53,7 +53,31 @@ Project 4: Part 4 / 9
  You will need to use Forward Declaration and out-of-class definitions to complete this.
  */
 
+struct FloatType;
+struct DoubleType;
+struct IntType;
 
+struct Point
+{
+    Point(float x, float y);
+    explicit Point(FloatType& x);
+    explicit Point(DoubleType& x);
+    explicit Point(IntType& x);
+    
+    Point& multiply(float m)
+    {
+        mx *= m;
+        my *= m;
+        return *this;
+    }
+    Point& multiply(FloatType& m);
+    Point& multiply(DoubleType& m);
+    Point& multiply(IntType& m);
+    void toString();
+
+private:
+    float mx{0}, my{0};
+};
 
 
 /*
@@ -167,9 +191,6 @@ struct HeapA
     A* a = nullptr;
 };
 
-
-
-
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -187,9 +208,6 @@ struct HeapA
 
 #include <iostream>
 #include <cmath>
-
-struct DoubleType;
-struct IntType;
 
 struct FloatType
 {
@@ -448,28 +466,13 @@ IntType& IntType::pow(FloatType& exp)
     return powInternal(static_cast<int>(exp));
 }
 
+// moved constructors down here at least
 
-struct Point
-{
-    Point(float x, float y) : mx(x), my(y) {}
-    Point(FloatType& x, FloatType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
-    Point(DoubleType& x, DoubleType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
-    Point(IntType& x, IntType& y) :Point(static_cast<float>(x), static_cast<float>(y)) {}
-    
-    Point& multiply(float m)
-    {
-        mx *= m;
-        my *= m;
-        return *this;
-    }
-    Point& multiply(FloatType& m);
-    Point& multiply(DoubleType& m);
-    Point& multiply(IntType& m);
-    void toString();
+Point::Point(float x, float y) : mx(x), my(y) {}
 
-private:
-    float mx{0}, my{0};
-};
+Point::Point(FloatType& x) : Point(x, x) {}
+Point::Point(DoubleType& x) : Point(static_cast<float>(x), static_cast<float>(x)) {}
+Point::Point(IntType& x) : Point(static_cast<float>(x), static_cast<float>(x)) {}
 
 Point& Point::multiply(FloatType& value)
 {
