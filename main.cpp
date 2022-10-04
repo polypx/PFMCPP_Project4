@@ -66,8 +66,8 @@ struct Point
     
     Point& multiply(float m)
     {
-        mx *= m;
-        my *= m;
+        x *= m;
+        y *= m;
         return *this;
     }
     Point& multiply(FloatType& m);
@@ -76,7 +76,7 @@ struct Point
     void toString();
 
 private:
-    float mx{0}, my{0};
+    float x{0}, y{0};
 };
 
 
@@ -468,10 +468,10 @@ IntType& IntType::pow(FloatType& exp)
 
 // moved constructors down here at least
 
-Point::Point(float x, float y) : mx(x), my(y) {}
-Point::Point(FloatType& x, FloatType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
-Point::Point(DoubleType& x, DoubleType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
-Point::Point(IntType& x, IntType& y) : Point(static_cast<float>(x), static_cast<float>(y)) {}
+Point::Point(float ix, float iy) : x(ix), y(iy) {}
+Point::Point(FloatType& ix, FloatType& iy) : Point(static_cast<float>(ix), static_cast<float>(iy)) {}
+Point::Point(DoubleType& ix, DoubleType& iy) : Point(static_cast<float>(ix), static_cast<float>(iy)) {}
+Point::Point(IntType& ix, IntType& iy) : Point(static_cast<float>(ix), static_cast<float>(iy)) {}
 
 Point& Point::multiply(FloatType& value)
 {
@@ -490,7 +490,7 @@ Point& Point::multiply(IntType& value)
 
 void Point::toString()
 {
-    std::cout << "Point { x: " << mx << ", y: " << my << " }" << std::endl;  
+    std::cout << "Point { x: " << x << ", y: " << y << " }" << std::endl;  
 }
 
 
