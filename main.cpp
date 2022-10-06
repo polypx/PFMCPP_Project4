@@ -287,6 +287,9 @@ struct FloatType
     FloatType& pow(FloatType&);
     FloatType& pow(DoubleType&);
     FloatType& pow(IntType&);
+
+    FloatType& apply(std::function<FloatType&(float&)>);
+    FloatType& apply(void(*funcPtr)(float&));
     
 
 private:
@@ -317,7 +320,9 @@ struct DoubleType
     DoubleType& pow(FloatType&);
     DoubleType& pow(DoubleType&);
     DoubleType& pow(IntType&);
-    
+
+    DoubleType& apply(std::function<DoubleType&(double&)>);
+    DoubleType& apply(void(*funcPtr)(double&));
 
 private:
     double* value;
@@ -347,6 +352,9 @@ struct IntType
     IntType& pow(FloatType&);
     IntType& pow(DoubleType&);
     IntType& pow(IntType&);
+
+    IntType& apply(std::function<IntType&(int&)>);
+    IntType& apply(void(*funcPtr)(int&));
 
 private:
     int* value;
