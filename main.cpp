@@ -708,7 +708,7 @@ int main()
     dt *= 2.0;
     std::cout << "DoubleType multiply result=" << dt << std::endl;
 
-    dt /= static_cast<double>(5.f);
+    dt /= 5.0;
     std::cout << "DoubleType divide result=" << dt << std::endl << std::endl;
     
     it += 2;
